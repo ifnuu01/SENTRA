@@ -1,12 +1,10 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
+import GlassTabBarBackground from '@/components/GlassTabBarBackground';
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Feather, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -15,29 +13,49 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.4)',
         headerShown: false,
         tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
+        tabBarBackground: () => (<GlassTabBarBackground />),
+        tabBarStyle: {
+          position: 'absolute',
+          backgroundColor: 'transparent',
+          elevation: 0,
+          borderTopWidth: 0,
+          height: 70,
+          paddingTop: 8,
+          paddingBottom: 4,
+          borderRadius: 20,
+          marginHorizontal: 10,
+          marginBottom: 48
+        }
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Deteksi',
+          tabBarIcon: ({ color }) => <Feather name="camera" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="chatbot"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Chat Bot',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="message-outline" size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="history"
+        options={{
+          title: 'Riwayat',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="history" size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Akun',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="user-alt" size={24} color={color} />,
         }}
       />
     </Tabs>
