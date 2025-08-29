@@ -5,8 +5,9 @@ SENTRA Mobile adalah aplikasi berbasis React Native yang dikembangkan untuk memu
 ### Fitur Utama
 
 - **Autentikasi Pengguna**: Registrasi, login, verifikasi, dan lupa password.
+- **Deteksi Warna**: Dapat mendeteksi warna menggunakan camera atau upload file gambar.
+- **Riwayat Deteksi**: Dapat melihat deteksi warna sebelumnya.
 - **Chatbot**: Fitur konsultasi otomatis dengan chatbot untuk membantu menjawab pertanyaan pengguna.
-- **Riwayat Konsultasi**: Melihat riwayat percakapan dan detail interaksi sebelumnya.
 - **Profil Pengguna**: Pengaturan profil, privasi, dan preferensi akun.
 - **Bantuan & FAQ**: Informasi panduan dan pertanyaan yang sering diajukan.
 - **Tema & Tampilan**: Mendukung mode gelap/terang dan personalisasi tampilan.
